@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Sokoban</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>📦 Sokoban</h1>
+        <div class="levelbar">
+            <button id="prev" title="Předchozí úroveň (P)">◀</button>
+            <select id="level"></select>
+            <button id="next" title="Další úroveň (N)">▶</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="hud">
+            <span>Tahy: <b id="moves">0</b></span>
+            <span>Tlačení: <b id="pushes">0</b></span>
+            <span>Rekord: <b id="best">–</b></span>
+        </div>
+
+        <div class="stage">
+            <canvas id="board"></canvas>
+            <div id="win" class="win" hidden>
+                <div class="winbox">
+                    <h2>🎉 Hotovo!</h2>
+                    <p id="winText"></p>
+                    <div class="buttons">
+                        <button id="winAgain">↺ Znovu</button>
+                        <button id="winNext" class="primary">Další úroveň ▶</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="undo">↶ Zpět (Z)</button>
+            <button id="restart">↺ Restart (R)</button>
+        </div>
+
+        <div class="dpad" aria-label="Ovládání dotykem">
+            <button data-d="up" class="up">▲</button>
+            <button data-d="left" class="left">◀</button>
+            <button data-d="down" class="down">▼</button>
+            <button data-d="right" class="right">▶</button>
+        </div>
+
+        <p class="help">
+            Šipky / WASD = pohyb · <b>Z</b> nebo Backspace = krok zpět · <b>R</b> = restart · <b>N</b>/<b>P</b> = další/předchozí úroveň.<br>
+            Postav všechny bedny na cíle (červené tečky). Bedny lze jen tlačit, ne tahat. Na dotykovém displeji přejeď prstem po hře.
+        </p>
+    </main>
+
+    <script src="js/levels.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

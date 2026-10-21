@@ -1,0 +1,103 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #1b1713;
+    color: #efe6d8;
+    touch-action: manipulation;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 24px;
+    background: #2a231c;
+    border-bottom: 2px solid #3f352a;
+}
+
+h1 { margin: 0; font-size: 1.5rem; }
+
+.levelbar { display: flex; gap: 8px; align-items: center; }
+
+select, button {
+    font: inherit;
+    color: inherit;
+    background: #3a3025;
+    border: 1px solid #5a4b3a;
+    border-radius: 6px;
+    padding: 7px 12px;
+}
+
+button { cursor: pointer; }
+button:hover { background: #4a3d2f; }
+button.primary { background: #b8741a; border-color: #e09a3c; }
+button.primary:hover { background: #cf8420; }
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+}
+
+.hud { display: flex; gap: 28px; font-size: 1.1rem; }
+.hud b { color: #ffd479; }
+
+.stage { position: relative; width: 100%; display: flex; justify-content: center; }
+
+canvas {
+    max-width: 100%;
+    max-height: 68vh;
+    width: auto;
+    height: auto;
+    background: #231d17;
+    border-radius: 10px;
+    border: 3px solid #3f352a;
+    touch-action: none;
+}
+
+.buttons { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+
+.win {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 10px;
+}
+.win[hidden] { display: none; }
+
+.winbox {
+    background: #2a231c;
+    border: 2px solid #e09a3c;
+    border-radius: 12px;
+    padding: 20px 28px;
+    text-align: center;
+}
+.winbox h2 { margin: 0 0 8px; }
+.winbox p { margin: 0 0 16px; }
+
+.dpad {
+    display: none;
+    grid-template-columns: repeat(3, 64px);
+    grid-template-rows: repeat(2, 64px);
+    gap: 6px;
+}
+.dpad button { font-size: 1.4rem; padding: 0; }
+.dpad .up { grid-column: 2; grid-row: 1; }
+.dpad .left { grid-column: 1; grid-row: 2; }
+.dpad .down { grid-column: 2; grid-row: 2; }
+.dpad .right { grid-column: 3; grid-row: 2; }
+
+@media (pointer: coarse) {
+    .dpad { display: grid; }
+}
+
+.help { max-width: 640px; text-align: center; color: #a89a85; font-size: 0.9rem; line-height: 1.5; margin: 0; }
